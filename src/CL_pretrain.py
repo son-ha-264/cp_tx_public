@@ -31,7 +31,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu"
     )
-    parser.add_argument("--epochs", type=int, default=1000)
+    parser.add_argument("--epochs", type=int, default=2000)
     parser.add_argument("--check_val_every_n_epochs", type=int, default=1)
     parser.add_argument("--T_0", type=int, default=101)
     parser.add_argument("--temperature", type=float, default=0.1)
@@ -102,14 +102,13 @@ if __name__ == "__main__":
     )
     test_loader = DataLoader(
         test_data,
-        # batch_size=len(test_data),
         batch_size=args.batch_size,
         shuffle=False,
         num_workers=8,
         pin_memory=True,
     )
 
-    # INIT FOR MODEL AND TRAINNER
+    # INIT FOR MODEL AND TRAINER
     INPUT_SHAPE_CP = len(train_data[3][0])
     INPUT_SHAPE_TX = len(train_data[3][1])
     tb_logger = pl_loggers.TensorBoardLogger(
@@ -206,8 +205,6 @@ if __name__ == "__main__":
             print("Convert to float32...")
             final_matrix_emb_cp = final_matrix_emb_cp.float()
             final_matrix_emb_tx = final_matrix_emb_tx.float()
-        else:
-            pass
 
         print("Sanity check, dimensions of embedding matrix...")
         print(final_matrix_emb_cp.shape)
