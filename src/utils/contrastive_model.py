@@ -38,7 +38,7 @@ class CLModel(nn.Module):
         self.tx_encoder = FNN_3layers(
             output_shape=args.embedding_shape,
             input_shape=input_shape_tx,
-            fc_units=args.fc_units_cp,
+            fc_units=args.fc_units_tx,
             drop_prob=args.drop_prob,
         )
         self.tx_projection_head = projection_head(

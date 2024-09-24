@@ -127,7 +127,7 @@ if __name__ == "__main__":
     print(f"DEVICE: {args.device}")
     print(f"INPUT_SHAPE_CP: {INPUT_SHAPE_CP}")
     print(f"INPUT_SHAPE_TX: {INPUT_SHAPE_TX}")
-    print(f"Total number of datapoints: {len(train_data)+len(val_data)}")
+    print(f"Total number of datapoints: {len(train_data)+len(val_data)+len(test_data)}")
     print("\n")
 
     # TRAINING STARTS
