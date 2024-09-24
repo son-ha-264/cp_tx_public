@@ -131,7 +131,10 @@ dmypy.json
 # My folders I wish not to upload
 /data
 /logs
-
+/data_inference_janssen
+/src/janssen_CL_inference.py
+/src/janssen_BAE_inference.py
+/src/janssen_run.sh
 
 #/data_processed
 #/src/drafts.ipynb
